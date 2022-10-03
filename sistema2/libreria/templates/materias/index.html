@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+
+{% block titulo %}  Nosotros  {% endblock %}
+
+
+
+{% block contenido %}  
+
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="{% url 'crear' %}" role="button">Agregar nuevo Estudiante</a>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Estudiante</h4>
+    <div class="table-responsive">
+        <table class="table table-primary">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre del estudiante</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for estudiante in estudiante %}
+                <tr>
+                    <td>{{estudiante.id_estudiante}}</td>
+                    <td>{{estudiante.nombre}}</td>
+                    <td></td>
+                    <td><a name="" id="" class="btn btn-outline-primary" href="{% url 'editar' estudiante.id %}" role="button">Editar</a>
+                        
+                        | 
+                        
+                        <a name="" id="" class="btn btn-outline-danger" href="{% url 'eliminar' estudiante.id %}" role="button">Borrar</td>
+                            
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+        
+    </div>
+    
+</div>
+
+
+
+
+
+{% endblock %}
